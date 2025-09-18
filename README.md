@@ -31,16 +31,13 @@ with [FrankenPHP](https://frankenphp.dev) and [Caddy](https://caddyserver.com/) 
 ## Docs
 
 1. [Options available](docs/options.md)
-2. [Using Symfony Docker with an existing project](docs/existing-project.md)
-3. [Support for extra services](docs/extra-services.md)
-4. [Deploying in production](docs/production.md)
-5. [Debugging with Xdebug](docs/xdebug.md)
-6. [TLS Certificates](docs/tls.md)
-7. [Using MySQL instead of PostgreSQL](docs/mysql.md)
-8. [Using Alpine Linux instead of Debian](docs/alpine.md)
-9. [Using a Makefile](docs/makefile.md)
-10. [Updating the template](docs/updating.md)
-11. [Troubleshooting](docs/troubleshooting.md)
+2. [Support for extra services](docs/extra-services.md)
+3. [Deploying in production](docs/production.md)
+4. [Debugging with Xdebug](docs/xdebug.md)
+5. [TLS Certificates](docs/tls.md)
+6. [Using a Makefile](docs/makefile.md)
+7. [Updating the template](docs/updating.md)
+8. [Troubleshooting](docs/troubleshooting.md)
 
 ## License
 
