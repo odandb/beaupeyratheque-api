@@ -1,6 +1,8 @@
 vich_uploader:
     db_driver: orm
     use_flysystem_to_resolve_uri: true
+    form: false
+    twig: false
     mappings:
         media_object:
             uri_prefix: /media
