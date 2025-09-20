@@ -1,8 +1,32 @@
 lexik_jwt_authentication:
+    user_id_claim: email
     secret_key: '%env(resolve:JWT_SECRET_KEY)%'
     public_key: '%env(resolve:JWT_PUBLIC_KEY)%'
     pass_phrase: '%env(JWT_PASSPHRASE)%'
+    token_ttl: '%env(resolve:JWT_TOKEN_TTL)%'
+    token_extractors:
+        authorization_header:
+            enabled: false
+        split_cookie:
+            enabled: true
+            cookies:
+                - app-%appEnvName%-6c769a1822aef275b81842ec5f203475
+                - app-%appEnvName%-cbbe3ffb1f5a052039bc0ea81c5dd427
+    set_cookies:
+        app-%env(APP_ENV_NAME)%-6c769a1822aef275b81842ec5f203475:
+            samesite: lax
+            domain: '%env(JWT_COOKIE_DOMAIN)%'
+            split:
+                - header
+                - payload
+            httpOnly: false
+        app-%env(APP_ENV_NAME)%-cbbe3ffb1f5a052039bc0ea81c5dd427:
+            samesite: lax
+            domain: '%env(JWT_COOKIE_DOMAIN)%'
+            split:
+                - signature
+            lifetime: 0
     api_platform:
-        check_path: /auth
+        check_path: /api/token
         username_path: email
         password_path: password

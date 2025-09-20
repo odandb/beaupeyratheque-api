@@ -621,7 +621,7 @@ security:
       stateless: true
       provider: users
       json_login:
-        check_path: /auth
+        check_path: /api/token
         username_path: email
         password_path: password
         success_handler: lexik_jwt_authentication.handler.authentication_success
@@ -629,7 +629,7 @@ security:
       jwt: ~
 
   access_control:
-    - { path: ^/auth, roles: PUBLIC_ACCESS }
+    - { path: ^/api/token, roles: PUBLIC_ACCESS }
     - { path: ^/docs, roles: PUBLIC_ACCESS }
     - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
 ```
@@ -700,7 +700,7 @@ new Post(securityPostDenormalize: "is_granted('ROLE_ADMIN')")
 
 #### 📝 **1. Connexion**
 ```http
-POST /auth
+POST /api/token
 Content-Type: application/json
 
 {
@@ -1256,5 +1256,5 @@ php bin/console doctrine:migrations:migrate
 php bin/console cache:clear
 
 # Créer un utilisateur
-php bin/console app:create-user user@example.com password123 John Do
+php bin/console app:create-user user@example.com password123 John Do --admin
 ```

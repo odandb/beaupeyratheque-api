@@ -17,19 +17,26 @@ security:
         main:
             stateless: true
             provider: users
+            login_throttling: ~
+            entry_point: jwt
             json_login:
-                check_path: /auth
+                check_path: /api/token
                 username_path: email
                 password_path: password
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
             jwt: ~
+            refresh_jwt:
+                check_path: /api/token/refresh
+            logout:
+                path: /api/logout
+                delete_cookies: '%cookies%'
 
     access_control:
         - { path: ^/$, roles: PUBLIC_ACCESS } # Page d'accueil
         - { path: ^/docs, roles: PUBLIC_ACCESS } # Documentation Swagger
         - { path: ^/contexts, roles: PUBLIC_ACCESS } # Contextes JSON-LD
-        - { path: ^/auth, roles: PUBLIC_ACCESS } # Endpoint de connexion
+        - { path: ^/api/token, roles: PUBLIC_ACCESS } # Endpoint de connexion
         - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY } # Gestion utilisateurs protégée
         - { path: ^/, roles: PUBLIC_ACCESS } # Tout le reste public
 

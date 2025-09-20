@@ -4,6 +4,20 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    # Cookies
+    cookies:
+        # Cookie JWT : header + payload
+        app-%env(APP_ENV_NAME)%-6c769a1822aef275b81842ec5f203475:
+            domain: '%env(JWT_COOKIE_DOMAIN)%'
+            secure: true
+            samesite: lax
+        # Cookie JWT : signature
+        app-%env(APP_ENV_NAME)%-cbbe3ffb1f5a052039bc0ea81c5dd427:
+            domain: '%env(JWT_COOKIE_DOMAIN)%'
+            secure: true
+            samesite: lax
+    # App env name for cookie name
+    appEnvName: '%env(APP_ENV_NAME)%'
 
 services:
     # default configuration for services in *this* file

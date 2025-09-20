@@ -140,7 +140,7 @@ GET /api/authors?nationality=Fr*
 ```
 
 ### Authentication Flow
-1. POST `/api/auth` with credentials to get JWT token
+1. POST `/api/token` with credentials to get JWT token
 2. Include `Authorization: Bearer <token>` header in requests
 3. Access user-specific endpoints with valid token
 
